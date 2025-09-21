@@ -1,0 +1,271 @@
+/*
+  Hommati 269 Website Styles
+
+  This stylesheet defines the look and feel for the Hommati 269 landing page
+  and associated legal pages. The design uses a dark navy and bright orange
+  colour palette derived from the Hommati corporate identity. Responsive
+  breakpoints ensure the layout adapts gracefully across mobile, tablet and
+  desktop devices.  Sections are clearly delineated using generous padding
+  and subtle gradients, while cards and buttons have rounded corners to
+  evoke a friendly, modern feel.
+*/
+
+/* ------ Colour palette ------ */
+:root {
+  /* Primary brand colour (navy) */
+  --colour-primary: #063C5E;
+  /* Accent colour (orange) */
+  --colour-accent: #F79526;
+  /* Neutral dark background */
+  --colour-bg: #0B1020;
+  /* Secondary surface for cards */
+  --colour-surface: #0f172a;
+  /* Base text colour */
+  --colour-text: #e6e8ee;
+  /* Muted text for subtitles */
+  --colour-muted: #a9b0c2;
+  /* Button glow ring colour */
+  --colour-ring: rgba(247, 149, 38, 0.35);
+}
+
+/* ------ Reset & global styles ------ */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--colour-bg), #0b1226 60%, #0c1430 100%);
+  color: var(--colour-text);
+  line-height: 1.6;
+}
+
+/* Accessibility: skip link allows keyboard users to jump directly to main content */
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  color: #000000;
+  z-index: 1000;
+}
+
+/* Layout containers */
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(11, 16, 32, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 10;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--colour-text);
+  text-decoration: none;
+  font-weight: 700;
+}
+.brand .logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.nav a {
+  color: var(--colour-text);
+  text-decoration: none;
+  margin-left: 1rem;
+  opacity: 0.9;
+}
+.nav a[aria-current="page"] {
+  color: var(--colour-accent);
+}
+
+/* Hero section */
+.hero {
+  padding: 3rem 0 2rem;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+.hero-copy h1 {
+  font-size: clamp(2rem, 1.3rem + 2.5vw, 3.5rem);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+.hero-copy p {
+  color: var(--colour-muted);
+  margin: 0.5rem 0 1rem;
+}
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--colour-accent);
+  color: #00110e;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 22px -10px var(--colour-ring);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -8px var(--colour-ring);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--colour-accent);
+  border: 1px solid var(--colour-accent);
+}
+.btn-outline:hover {
+  background: var(--colour-accent);
+  color: #00110e;
+}
+
+.hero-media {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Cards & Grid */
+.services, .gallery, .page {
+  padding: 2rem 0;
+}
+.services h2, .gallery h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 1rem + 1vw, 2.2rem);
+}
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1rem;
+  border-radius: 0.9rem;
+}
+.card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+/* Gallery */
+.ratio {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: var(--colour-surface);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 3rem;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+  color: var(--colour-muted);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer-inner a {
+  color: var(--colour-muted);
+}
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--colour-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+.social-links a:hover {
+  background: var(--colour-accent);
+  color: #00110e;
+}
+
+/* Pages (Terms/Privacy) */
+.page .container {
+  max-width: 820px;
+}
+.page h1 {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}
+.page h2 {
+  margin-top: 1.25rem;
+  font-size: 1.4rem;
+}
+.page p {
+  color: var(--colour-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
